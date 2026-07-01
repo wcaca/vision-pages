@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>显影自性 · 终态愿景</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root { --bg:#f7f5f0; --card:#fff; --border:#e9e3d6; --border-soft:#f0ebde; --text:#14171e; --text-2:#3a4256; --text-3:#7c7a72; --primary:#2f6f5e; --primary-2:#4a8e7c; --accent:#c97b3f; --accent-2:#b06367; --font-serif:'DM Serif Display',serif; --font-sans:'Outfit',system-ui,-apple-system,sans-serif; --font-mono:'JetBrains Mono',monospace; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:var(--font-sans); background:var(--bg); color:var(--text); line-height:1.55; font-size:15px; -webkit-font-smoothing:antialiased; position:relative; overflow-x:hidden; }
+body::before { content:""; position:fixed; top:-200px; right:-200px; width:500px; height:500px; background:radial-gradient(circle,rgba(47,111,94,0.04) 0%,transparent 70%); pointer-events:none; z-index:0; }
+body::after { content:""; position:fixed; bottom:-200px; left:-200px; width:500px; height:500px; background:radial-gradient(circle,rgba(201,123,63,0.04) 0%,transparent 70%); pointer-events:none; z-index:0; }
+main { position:relative; z-index:1; }
+.hero { min-height:92dvh; display:flex; flex-direction:column; justify-content:center; padding:60px 24px 80px; max-width:920px; margin:0 auto; }
+.hero-eyebrow { font-family:var(--font-mono); font-size:11px; letter-spacing:0.2em; color:var(--primary); text-transform:uppercase; margin-bottom:32px; display:flex; align-items:center; gap:12px; }
+.hero-eyebrow::before { content:""; width:32px; height:1px; background:var(--primary); }
+.hero h1 { font-family:var(--font-serif); font-weight:400; font-size:clamp(40px,6.5vw,76px); line-height:1.05; letter-spacing:-0.012em; color:var(--text); margin-bottom:28px; }
+.hero h1 em { font-style:italic; color:var(--primary); }
+.hero-sub { font-size:clamp(16px,2.2vw,19px); line-height:1.65; color:var(--text-2); max-width:640px; margin-bottom:56px; }
+.hero-invite { display:inline-block; padding:18px 28px; background:var(--text); color:var(--bg); border-radius:14px; font-size:15px; font-style:italic; font-family:var(--font-serif); letter-spacing:0.01em; box-shadow:0 4px 16px -2px rgba(0,0,0,0.08); max-width:580px; line-height:1.5; position:relative; }
+.hero-invite::before { content:""; font-family:var(--font-serif); color:var(--accent); font-size:1.2em; margin-right:4px; }
+.hero-invite::after { content:""; font-family:var(--font-serif); color:var(--accent); font-size:1.2em; margin-left:2px; }
+.hero-meta { margin-top:64px; font-family:var(--font-mono); font-size:11px; color:var(--text-3); display:flex; gap:24px; flex-wrap:wrap; }
+.hero-meta span { display:flex; align-items:center; gap:6px; }
+section { max-width:1080px; margin:0 auto; padding:80px 24px; }
+.section-eyebrow { font-family:var(--font-mono); font-size:11px; letter-spacing:0.2em; color:var(--accent); text-transform:uppercase; margin-bottom:16px; display:flex; align-items:center; gap:12px; }
+.section-eyebrow::before { content:""; width:24px; height:1px; background:var(--accent); }
+.section h2 { font-family:var(--font-serif); font-weight:400; font-size:clamp(28px,4vw,40px); line-height:1.15; letter-spacing:-0.008em; color:var(--text); margin-bottom:24px; max-width:760px; }
+.section-lead { font-size:17px; line-height:1.65; color:var(--text-2); max-width:720px; margin-bottom:56px; }
+.moment { background:var(--text); color:var(--bg); border-radius:24px; padding:56px 48px; margin:32px 0 0; position:relative; overflow:hidden; }
+.moment::before { content:""; position:absolute; top:-100px; right:-100px; width:300px; height:300px; background:radial-gradient(circle,rgba(201,123,63,0.18) 0%,transparent 70%); }
+.moment-label { font-family:var(--font-mono); font-size:10px; letter-spacing:0.25em; color:var(--accent); text-transform:uppercase; margin-bottom:24px; }
+.moment-quote { font-family:var(--font-serif); font-size:clamp(24px,3.5vw,36px); line-height:1.35; font-style:italic; color:var(--bg); margin-bottom:24px; position:relative; z-index:1; }
+.moment-reply { font-size:15px; line-height:1.6; color:rgba(247,245,240,0.75); max-width:580px; position:relative; z-index:1; }
+.scene-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:32px; }
+@media(max-width:768px) { .scene-grid { grid-template-columns:1fr; } }
+.scene { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:28px 26px; transition:all 0.2s ease; }
+.scene:hover { transform:translateY(-2px); box-shadow:0 8px 24px -4px rgba(20,23,30,0.08); border-color:var(--primary); }
+.scene-num { font-family:var(--font-mono); font-size:10px; letter-spacing:0.2em; color:var(--text-3); margin-bottom:16px; }
+.scene-icon { width:32px; height:32px; color:var(--primary); margin-bottom:16px; display:block; }
+.scene-name { font-family:var(--font-serif); font-size:22px; line-height:1.2; color:var(--text); margin-bottom:6px; }
+.scene-path { font-family:var(--font-mono); font-size:11px; color:var(--accent); margin-bottom:14px; }
+.scene-not { font-size:13px; color:var(--text-3); text-decoration:line-through; margin-bottom:4px; }
+.scene-is { font-size:14px; color:var(--text); line-height:1.5; margin-bottom:14px; }
+.scene-list { list-style:none; font-size:13px; color:var(--text-2); border-top:1px solid var(--border-soft); padding-top:14px; margin-top:8px; }
+.scene-list li { padding:4px 0; display:flex; align-items:flex-start; gap:8px; }
+.scene-list li::before { content:"→"; color:var(--primary); font-family:var(--font-mono); font-size:11px; flex-shrink:0; margin-top:2px; }
+.partner-table { background:var(--card); border:1px solid var(--border); border-radius:18px; overflow:hidden; margin-top:32px; }
+.partner-row { display:grid; grid-template-columns:1fr 1fr 1fr; border-bottom:1px solid var(--border-soft); font-size:14px; }
+.partner-row:last-child { border-bottom:none; }
+.partner-row > div { padding:18px 22px; }
+.partner-row > div:nth-child(1) { background:rgba(176,99,103,0.05); border-right:1px solid var(--border-soft); color:var(--text-3); }
+.partner-row > div:nth-child(2) { background:rgba(47,111,94,0.04); border-right:1px solid var(--border-soft); color:var(--text); font-weight:500; }
+.partner-row.header > div { font-family:var(--font-mono); font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-3); font-weight:500; }
+.partner-row.header > div:nth-child(1) { background:rgba(176,99,103,0.08); }
+.partner-row.header > div:nth-child(2) { background:rgba(47,111,94,0.08); }
+@media(max-width:768px) { .partner-row { grid-template-columns:1fr; } .partner-row > div { border-right:none; border-bottom:1px solid var(--border-soft); } }
+.tenets { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:32px; }
+@media(max-width:768px) { .tenets { grid-template-columns:1fr; } }
+.tenet { background:var(--card); border:1px solid var(--border); border-left:3px solid var(--primary); border-radius:0 12px 12px 0; padding:22px 22px 20px; }
+.tenet-num { font-family:var(--font-mono); font-size:10px; letter-spacing:0.2em; color:var(--accent); margin-bottom:10px; }
+.tenet-title { font-family:var(--font-serif); font-size:18px; line-height:1.3; color:var(--text); margin-bottom:8px; }
+.tenet-text { font-size:13px; line-height:1.55; color:var(--text-2); }
+.daily { background:var(--card); border:1px solid var(--border); border-radius:18px; overflow:hidden; margin-top:32px; }
+.daily-row { display:grid; grid-template-columns:110px 1fr 1fr 80px; align-items:center; border-bottom:1px solid var(--border-soft); font-size:14px; transition:background 0.15s; }
+.daily-row:hover { background:rgba(47,111,94,0.03); }
+.daily-row:last-child { border-bottom:none; }
+.daily-row > div { padding:16px 18px; }
+.daily-freq { font-family:var(--font-mono); font-size:11px; color:var(--primary); letter-spacing:0.05em; text-transform:uppercase; }
+.daily-action { color:var(--text); font-weight:500; }
+.daily-detail { color:var(--text-2); font-size:13px; }
+.daily-time { font-family:var(--font-mono); font-size:12px; color:var(--accent); text-align:right; }
+@media(max-width:768px) { .daily-row { grid-template-columns:1fr; gap:4px; padding:4px 0; } .daily-row > div { padding:4px 18px; } .daily-time { text-align:left; } }
+.timeline { position:relative; margin-top:40px; padding-left:60px; }
+.timeline::before { content:""; position:absolute; left:22px; top:8px; bottom:8px; width:2px; background:linear-gradient(180deg,var(--primary) 0%,var(--accent) 100%); }
+.t-step { position:relative; padding:0 0 36px 24px; }
+.t-step:last-child { padding-bottom:0; }
+.t-dot { position:absolute; left:-45px; top:4px; width:24px; height:24px; border-radius:50%; background:var(--card); border:2px solid var(--primary); display:inline-flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px; color:var(--primary); font-weight:600; }
+.t-when { font-family:var(--font-mono); font-size:11px; letter-spacing:0.1em; color:var(--accent); text-transform:uppercase; margin-bottom:4px; }
+.t-what { font-family:var(--font-serif); font-size:19px; line-height:1.3; color:var(--text); margin-bottom:6px; }
+.t-desc { font-size:14px; line-height:1.55; color:var(--text-2); }
+.principles { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:32px; }
+@media(max-width:768px) { .principles { grid-template-columns:1fr; } }
+.principle { display:flex; gap:14px; padding:16px 18px; background:var(--card); border:1px solid var(--border); border-radius:12px; align-items:flex-start; }
+.principle-icon { width:24px; height:24px; color:var(--primary); flex-shrink:0; margin-top:2px; }
+.principle-text { font-size:13.5px; line-height:1.5; color:var(--text); }
+.principle-text strong { color:var(--primary); font-weight:600; }
+.notin { margin-top:32px; display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
+@media(max-width:768px) { .notin { grid-template-columns:1fr; } }
+.notin-item { font-size:13px; color:var(--text-3); padding:12px 16px; background:var(--card); border:1px dashed var(--border); border-radius:10px; display:flex; align-items:center; gap:10px; }
+.notin-item::before { content:"×"; color:var(--accent-2); font-family:var(--font-mono); font-size:16px; flex-shrink:0; }
+.final-wrap { max-width:1080px; margin:0 auto; padding:0 24px; }
+.final { background:var(--text); color:var(--bg); border-radius:24px; padding:80px 48px; text-align:center; margin:32px 0 0; position:relative; overflow:hidden; }
+.final::before { content:""; position:absolute; top:-150px; left:50%; transform:translateX(-50%); width:400px; height:400px; background:radial-gradient(circle,rgba(201,123,63,0.15) 0%,transparent 70%); }
+.final-quote { font-family:var(--font-serif); font-size:clamp(28px,4vw,44px); line-height:1.3; font-style:italic; color:var(--bg); max-width:800px; margin:0 auto 32px; position:relative; z-index:1; }
+.final-quote em { color:var(--accent); font-style:italic; }
+.final-reply { font-size:15px; line-height:1.7; color:rgba(247,245,240,0.75); max-width:560px; margin:0 auto; position:relative; z-index:1; }
+.final-reply .hl { color:var(--accent); font-weight:500; }
+.closing { text-align:center; padding:80px 24px 120px; max-width:720px; margin:0 auto; }
+.closing-by { font-family:var(--font-mono); font-size:11px; letter-spacing:0.15em; color:var(--text-3); text-transform:uppercase; margin-bottom:12px; }
+.closing-name { font-family:var(--font-serif); font-size:18px; color:var(--text); font-style:italic; }
+@media(max-width:768px) { .hero { padding:40px 20px 60px; } section { padding:60px 20px; } .moment,.final { padding:36px 24px; } .scene { padding:22px 20px; } }
+</style>
+</head>
+<body>
+<main>
+
+<div class="hero">
+  <div class="hero-eyebrow">SYSTEM_SELF · 终态愿景</div>
+  <h1>不是工具, 是<em>关系</em>。</h1>
+  <p class="hero-sub">一个长期陪伴你看见自己、慢慢变成自己的系统。不是任务清单, 不是数据面板, 是一面镜子 — 帮你看见你一直在逃开的、忽略的、正在长出来的东西。</p>
+  <div class="hero-invite">今天有 3 件事值得你看见。</div>
+  <div class="hero-meta">
+    <span>v25dk · 显影自性</span>
+    <span>6 capability · 4 引擎 · 8 renderer</span>
+    <span>2026.07.01</span>
+  </div>
+</div>
+
+<section>
+  <div class="section-eyebrow">THE MOMENT</div>
+  <h2>第一眼 (打开后 10 秒)</h2>
+  <p class="section-lead">不是 dashboard。不是任务清单。是 AI 伙伴的 <strong>一句邀请</strong> — 让你意识到自己遗漏的、忽略的、正在逃开的。</p>
+  <div class="moment">
+    <div class="moment-label">显影自性 · Mavis</div>
+    <p class="moment-quote">今天有 3 件事值得你看见。</p>
+    <p class="moment-reply">不是 "该做什么"。是 "该看见什么"。下面 3 张沉浸式卡片, 每一张都是 1-2 屏的对话, 不是表单。</p>
+  </div>
+</section>
+
+<section>
+  <div class="section-eyebrow">SIX SCENES</div>
+  <h2>6 个核心场景</h2>
+  <p class="section-lead">每个场景都是一个完整闭环 — 不是页面, 是你和自己的对话。AI 决定每个场景里, 此刻你最需要看见的。</p>
+
+  <div class="scene-grid">
+    <div class="scene">
+      <div class="scene-num">01 / 今日</div>
+      <svg class="scene-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <div class="scene-name">今日显影</div>
+      <div class="scene-path">/</div>
+      <div class="scene-not">不是 To-Do, 不是日历</div>
+      <div class="scene-is">从你蛛网 + 日记 + 上次反思里挑出 <strong>一个张紧点</strong></div>
+      <ul class="scene-list">
+        <li>一句未完成的反思</li>
+        <li>一个被忽略的情绪</li>
+        <li>一个搁置的承诺</li>
+        <li>你回应 → 触发日记 / 学习 / 行动</li>
+      </ul>
+    </div>
+
+    <div class="scene">
+      <div class="scene-num">02 / 拓扑</div>
+      <svg class="scene-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><path d="M8 6h8M6 8v8M18 8v8M8 18h8"/></svg>
+      <div class="scene-name">蛛网</div>
+      <div class="scene-path">/cobweb</div>
+      <div class="scene-not">不是图表, 不是散点</div>
+      <div class="scene-is"><strong>你的认知拓扑</strong> — 哪里聚集, 哪里松散, 谁是中心</div>
+      <ul class="scene-list">
+        <li>力导向布局, 一眼看清 "什么在缠你"</li>
+        <li>嵌套钻入: 双击节点进入子图</li>
+        <li>时间轴: 3 个月前的你和现在的你对比</li>
+        <li>凸包 hull 圈出已闭合的认知</li>
+      </ul>
+    </div>
+
+    <div class="scene">
+      <div class="scene-num">03 / 沉浸</div>
+      <svg class="scene-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15 8.5 22 9.3 17 14.1 18.2 21 12 17.8 5.8 21 7 14.1 2 9.3 9 8.5"/></svg>
+      <div class="scene-name">学习空间</div>
+      <div class="scene-path">/learning</div>
+      <div class="scene-not">不是 10 个选项的工具箱</div>
+      <div class="scene-is"><strong>沉浸式 RPG</strong> — 1-2 个当下最贴的能力卡</div>
+      <ul class="scene-list">
+        <li>6 capability: 特质整合 / 视角转换 / 价值排序 / 共情校准 / 反应模式 / 承诺设计</li>
+        <li>每张卡 3 步: intro → practice → feedback</li>
+        <li>13s 后给真反馈, 不是 "你答对了 80 分"</li>
+        <li>完成后并入蛛网, 闭环成立</li>
+      </ul>
+    </div>
+
+    <div class="scene">
+      <div class="scene-num">04 / 星座</div>
+      <svg class="scene-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.9h6.1l-4.9 3.6 1.9 5.9-5-3.6-5 3.6 1.9-5.9-4.9-3.6h6.1z"/></svg>
+      <div class="scene-name">自我宇宙</div>
+      <div class="scene-path">/universe</div>
+      <div class="scene-not">不是按时间排, 不是按重要性排</div>
+      <div class="scene-is">所有节点按 <strong>维度</strong> 排成星座</div>
+      <ul class="scene-list">
+        <li>情绪 / 行动 / 关系 / 价值 / 方向 ...</li>
+        <li>AI 选一颗星 (你该看见的)</li>
+        <li>你选一颗星 (你想看的)</li>
+        <li>点击进入是日记/作品/反思, 不是数据</li>
+      </ul>
+    </div>
+
+    <div class="scene">
+      <div class="scene-num">05 / 路径</div>
+      <svg class="scene-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
+      <div class="scene-name">理想自我</div>
+      <div class="scene-path">/ideal</div>
+      <div class="scene-not">不是空白描述, 不是愿景板</div>
+      <div class="scene-is">AI 把你的 "理想我" 拆成 <strong>可学的能力路径</strong></div>
+      <ul class="scene-list">
+        <li>写 "理想我" 描述 → AI 拆成 capability 序列</li>
+        <li>"想成为理想中的你, 这周学 X 这个"</li>
+        <li>路径实时更新 (你的蛛网在变, 路径跟着变)</li>
+        <li>不是任务, 是 "我越来越像我"</li>
+      </ul>
+    </div>
+
+    <div class="scene">
+      <div class="scene-num">06 / 时间</div>
+      <svg class="scene-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5M12 7v5l4 2"/></svg>
+      <div class="scene-name">成长地图</div>
+      <div class="scene-path">/map</div>
+      <div class="scene-not">不是里程碑, 不是打卡日历</div>
+      <div class="scene-is">认知 / 行动 / 反思的 <strong>流动</strong></div>
+      <ul class="scene-list">
+        <li>标记: 第一次说出口 / 第一次闭环 / 第一次拒绝</li>
+        <li>翻到 1 年前, 看见自己变化</li>
+        <li>时间轴叠加 (日记 + 学习 + 蛛网)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-eyebrow">THE PARTNER</div>
+  <h2>AI 伙伴 (Mavis) 的终态</h2>
+  <p class="section-lead">不是客服, 不是评估者, 不是教练。是一个 <strong>有超能力也有盲区</strong> 的存在, 知道沉默什么时候比说话更对。</p>
+
+  <div class="partner-table">
+    <div class="partner-row header">
+      <div>不是 (Not)</div>
+      <div>是 (Is)</div>
+      <div>说明</div>
+    </div>
+    <div class="partner-row">
+      <div>评估者<br><span style="font-size:11px;opacity:0.7">"你的得分是 65"</span></div>
+      <div>映射者<br><span style="font-size:11px;opacity:0.7">"你的拓扑在这里"</span></div>
+      <div style="color:var(--text-2);font-size:13px">打分让人防御, 映射让人看见</div>
+    </div>
+    <div class="partner-row">
+      <div>教练<br><span style="font-size:11px;opacity:0.7">"你应该..."</span></div>
+      <div>伙伴<br><span style="font-size:11px;opacity:0.7">"可选 A/B/C, 或你想别的"</span></div>
+      <div style="color:var(--text-2);font-size:13px">不替你决定, 给你选项</div>
+    </div>
+    <div class="partner-row">
+      <div>数据面板<br><span style="font-size:11px;opacity:0.7">"完整度 41%"</span></div>
+      <div>叙事者<br><span style="font-size:11px;opacity:0.7">"你这里有 4 个节点在互相强化"</span></div>
+      <div style="color:var(--text-2);font-size:13px">数字不能让你行动, 故事可以</div>
+    </div>
+    <div class="partner-row">
+      <div>全知<br><span style="font-size:11px;opacity:0.7">"我什么都能告诉你"</span></div>
+      <div>有边界<br><span style="font-size:11px;opacity:0.7">"这超出了我能帮的范围"</span></div>
+      <div style="color:var(--text-2);font-size:13px">坦诚的 "不知道" 是一种尊重</div>
+    </div>
+    <div class="partner-row">
+      <div>永远在<br><span style="font-size:11px;opacity:0.7">"随时为你服务"</span></div>
+      <div>知道沉默<br><span style="font-size:11px;opacity:0.7">"今天你需要的不是回答"</span></div>
+      <div style="color:var(--text-2);font-size:13px">不打扰是最大的尊重</div>
+    </div>
+  </div>
+
+  <div class="tenets">
+    <div class="tenet">
+      <div class="tenet-num">铁律 01</div>
+      <div class="tenet-title">userIntent 优先</div>
+      <div class="tenet-text">你想的比我猜的对, 永远先听你的</div>
+    </div>
+    <div class="tenet">
+      <div class="tenet-num">铁律 02</div>
+      <div class="tenet-title">不锁 mode</div>
+      <div class="tenet-text">今天想要 4 步练习, 明天只要 1 句话, 都对</div>
+    </div>
+    <div class="tenet">
+      <div class="tenet-num">铁律 03</div>
+      <div class="tenet-title">永不出错</div>
+      <div class="tenet-text">8 种 renderer 兜底, 任何 prompt 失败都给回退</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-eyebrow">DAILY RHYTHM</div>
+  <h2>你每天的真实使用</h2>
+  <p class="section-lead">不是 "做任务", 是 <strong>看见</strong> + <strong>练习</strong> + <strong>沉淀</strong>。总时长一天 5-15 分钟, 不是更多。</p>
+
+  <div class="daily">
+    <div class="daily-row">
+      <div class="daily-freq">每天</div>
+      <div class="daily-action">打开看 1 件事</div>
+      <div class="daily-detail">3 分钟, 一句邀请 + 1 个回应</div>
+      <div class="daily-time">3min</div>
+    </div>
+    <div class="daily-row">
+      <div class="daily-freq">每周 2-3 次</div>
+      <div class="daily-action">进学习空间做 1 个 practice</div>
+      <div class="daily-detail">10-15 分钟, 1 个 capability 卡</div>
+      <div class="daily-time">~30min</div>
+    </div>
+    <div class="daily-row">
+      <div class="daily-freq">每月 1 次</div>
+      <div class="daily-action">看蛛网变化</div>
+      <div class="daily-detail">5 分钟, 跟 1 个月前对比</div>
+      <div class="daily-time">5min</div>
+    </div>
+    <div class="daily-row">
+      <div class="daily-freq">每 3 个月</div>
+      <div class="daily-action">更新 "理想我"</div>
+      <div class="daily-detail">30 分钟, AI 重算 capability 路径</div>
+      <div class="daily-time">30min</div>
+    </div>
+    <div class="daily-row">
+      <div class="daily-freq">偶尔</div>
+      <div class="daily-action">钻入节点, 整理过去的自己</div>
+      <div class="daily-detail">不限时长, 跟随情绪</div>
+      <div class="daily-time">∞</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-eyebrow">LONG ARC</div>
+  <h2>长期效果 (1 年后)</h2>
+  <p class="section-lead">不是 "目标达成", 是 <strong>越来越像自己</strong>。系统越用越少, 因为你越来越不需要它。</p>
+
+  <div class="timeline">
+    <div class="t-step">
+      <div class="t-dot">3M</div>
+      <div class="t-when">3 个月</div>
+      <div class="t-what">蛛网更平衡</div>
+      <div class="t-desc">闭环从 7 个变 12 个 — 你越来越能 "闭合" 自己, 看得见自己是怎么连成一片的</div>
+    </div>
+    <div class="t-step">
+      <div class="t-dot">6M</div>
+      <div class="t-when">6 个月</div>
+      <div class="t-what">日记更短但更清晰</div>
+      <div class="t-desc">你能 1 段话讲清楚一个月的自己, 不再需要长篇的辩解和绕弯子</div>
+    </div>
+    <div class="t-step">
+      <div class="t-dot">1Y</div>
+      <div class="t-when">1 年</div>
+      <div class="t-what">能自己说清 "我是谁"</div>
+      <div class="t-desc">不再需要 AI 提醒, 你的内在声音已经足够清晰, AI 退到后台</div>
+    </div>
+    <div class="t-step">
+      <div class="t-dot">2Y</div>
+      <div class="t-when">2 年</div>
+      <div class="t-what">AI 退到后台</div>
+      <div class="t-desc">偶尔被你叫出来 "帮我看看这个", 平时你过着自己的生活, 偶尔用它来核对</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-eyebrow">DESIGN LAWS</div>
+  <h2>不可妥协的设计原则</h2>
+  <p class="section-lead">这些不是 "可以商量", 是 <strong>系统的脊梁</strong>。任何违反这 5 条的功能, 都不进终态。</p>
+
+  <div class="principles">
+    <div class="principle">
+      <svg class="principle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M7 12h10"/></svg>
+      <div class="principle-text"><strong>"不可能出 bug"</strong> — URL 是 source of truth, 不存 React state, AI 自由组合, 失败 fallback 兜底</div>
+    </div>
+    <div class="principle">
+      <svg class="principle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      <div class="principle-text"><strong>内容是主, 能力是 buff</strong> — 你在 "看见自己", 不在 "训练 capability", 能力藏在学习卡里</div>
+    </div>
+    <div class="principle">
+      <svg class="principle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+      <div class="principle-text"><strong>AI 决定 UI</strong> — 不用固定组件, 让 AI 自由组合 (emoji/颜色/size/位置)</div>
+    </div>
+    <div class="principle">
+      <svg class="principle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+      <div class="principle-text"><strong>信息 × 空间适配</strong> — AI 决定每张卡占多大 (hero/card/link), 不是固定网格</div>
+    </div>
+    <div class="principle">
+      <svg class="principle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <div class="principle-text"><strong>失败 fallback</strong> — 8 种 renderer + safeInteractionType, 任何 prompt 出问题都给简单回退</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-eyebrow">NOT IN THE END STATE</div>
+  <h2>不在终态里的</h2>
+  <p class="section-lead">这些是看起来 "该有" 但会破坏关系的东西, 终态里 <strong>明确不包含</strong>。</p>
+
+  <div class="notin">
+    <div class="notin-item">复杂数据 dashboard</div>
+    <div class="notin-item">排行榜 / 进度条 / 打卡日历</div>
+    <div class="notin-item">AI 评分 ("你得了 92 分")</div>
+    <div class="notin-item">群组 / 社交 / 关注</div>
+    <div class="notin-item">推送通知 ("今天学了吗")</div>
+    <div class="notin-item">任务完成度百分比</div>
+    <div class="notin-item">成就徽章 / 解锁特效</div>
+    <div class="notin-item">连续打卡 streak 数字</div>
+  </div>
+</section>
+
+<div class="final-wrap">
+  <div class="final">
+    <p class="final-quote">这个系统让你能 <em>"我跟自己说话"</em>,<br>不是 "我跟 AI 说话"。</p>
+    <p class="final-reply">AI 是 <span class="hl">镜子</span>, 不是老师。<br>镜子帮你看见自己, 不教你怎么做。<br>你看见得越清楚, 越不需要镜子。<br><strong>这是终态。</strong></p>
+  </div>
+</div>
+
+<div class="closing">
+  <div class="closing-by">VISION DOCUMENT</div>
+  <div class="closing-name">写于 2026 年 7 月 1 日 · by Mavis</div>
+</div>
+
+</main>
+</body>
+</html>

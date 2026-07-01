@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>显影自性 · 产品愿景系列</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f0ece2;
+  --bg-2: #e8e2d4;
+  --paper: #f7f3e8;
+  --ink: #1f1d18;
+  --ink-2: #4a4538;
+  --ink-3: #7a7261;
+  --ink-4: #a89e87;
+  --line: #c4bca6;
+  --line-2: #d8d0bc;
+  --line-soft: #e0d9c5;
+  --accent: #6b3a1f;
+  --accent-2: #8a5a3a;
+  --accent-soft: #b89478;
+  --font-serif: 'DM Serif Display', serif;
+  --font-sans: 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.55;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  overflow-x: hidden;
+}
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(107, 58, 31, 0.025) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(31, 29, 24, 0.02) 0%, transparent 50%);
+  pointer-events: none; z-index: 0;
+}
+main { position: relative; z-index: 1; }
+
+/* Hero */
+.hero {
+  min-height: 90dvh;
+  display: flex; flex-direction: column;
+  justify-content: center;
+  padding: 60px 24px 80px;
+  max-width: 920px; margin: 0 auto;
+}
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: 0.25em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  display: flex; align-items: center; gap: 12px;
+}
+.hero-eyebrow::before { content: ""; width: 32px; height: 1px; background: var(--accent); }
+.hero h1 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(40px, 6.5vw, 76px);
+  line-height: 1.05;
+  letter-spacing: -0.012em;
+  color: var(--ink);
+  margin-bottom: 28px;
+}
+.hero h1 em { font-style: italic; color: var(--accent); }
+.hero-sub {
+  font-size: clamp(16px, 2.2vw, 19px);
+  line-height: 1.7;
+  color: var(--ink-2);
+  max-width: 640px;
+  margin-bottom: 56px;
+}
+.hero-pull {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(18px, 2.4vw, 24px);
+  line-height: 1.5;
+  color: var(--ink);
+  border-left: 2px solid var(--accent);
+  padding: 8px 0 8px 24px;
+  max-width: 600px;
+  margin-bottom: 56px;
+}
+.hero-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-3);
+  display: flex; gap: 24px; flex-wrap: wrap;
+}
+.hero-meta span { display: flex; align-items: center; gap: 6px; }
+.hero-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+/* Section */
+section { max-width: 1280px; margin: 0 auto; padding: 60px 24px 80px; }
+.section-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: 0.25em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-eyebrow::before { content: ""; width: 24px; height: 1px; background: var(--accent); }
+.section h2 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.15;
+  letter-spacing: -0.008em;
+  color: var(--ink);
+  margin-bottom: 16px;
+  max-width: 760px;
+}
+.section-lead {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--ink-2);
+  max-width: 720px;
+  margin-bottom: 48px;
+}
+
+/* TOC */
+.toc {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.toc-item {
+  display: grid;
+  grid-template-columns: 80px 1fr 1fr 80px;
+  align-items: center;
+  gap: 24px;
+  padding: 36px 24px;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+  color: var(--ink);
+  transition: all 0.2s;
+  position: relative;
+}
+.toc-item:last-child { border-bottom: none; }
+.toc-item:hover {
+  background: rgba(107, 58, 31, 0.03);
+  padding-left: 36px;
+}
+.toc-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-4);
+  letter-spacing: 0.15em;
+}
+.toc-name {
+  font-family: var(--font-serif);
+  font-size: clamp(24px, 3.5vw, 36px);
+  color: var(--ink);
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+.toc-name em { font-style: italic; color: var(--accent); }
+.toc-sub {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.toc-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  max-width: 480px;
+}
+.toc-desc strong { color: var(--ink); font-weight: 600; }
+.toc-arrow {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  color: var(--accent);
+  text-align: right;
+  transition: transform 0.2s;
+}
+.toc-item:hover .toc-arrow { transform: translateX(4px); }
+@media(max-width: 768px) {
+  .toc-item { grid-template-columns: 60px 1fr 40px; gap: 16px; padding: 24px 16px; }
+  .toc-desc { display: none; }
+  .toc-item:hover { padding-left: 24px; }
+}
+
+/* Cross-link */
+.cross {
+  margin-top: 48px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 32px 28px;
+}
+.cross-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.cross-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ink-2);
+  margin-bottom: 20px;
+}
+.cross-text strong { color: var(--ink); font-weight: 600; }
+.cross-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+@media(max-width: 768px) { .cross-list { grid-template-columns: 1fr; } }
+.cross-list li {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 10px 12px;
+  background: var(--bg-2);
+  border-radius: 2px;
+  font-size: 13px;
+  color: var(--ink-2);
+}
+.cross-list li::before {
+  content: "→";
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.cross-list li strong { color: var(--ink); font-weight: 600; }
+
+/* Closing */
+.closing {
+  text-align: center;
+  padding: 80px 24px 120px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.closing-by {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.closing-name {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  color: var(--ink);
+  font-style: italic;
+}
+</style>
+</head>
+<body>
+<main>
+
+<div class="hero">
+  <div class="hero-eyebrow">SYSTEM_SELF · VISION SERIES · 2026.07.01</div>
+  <h1>产品的<em>3 张</em>图。</h1>
+  <p class="hero-sub">不是 3 个不同产品, 是 1 个产品的 3 个视角。第 1 张是"系统长什么样", 第 2 张是"系统核心长什么样", 第 3 张是"在不同阶段, 你会看见什么"。</p>
+  <p class="hero-pull">"这 3 张图是一份完整的终态约定 — 系统做什么, 核心怎么呈现, 时间会怎么变。"</p>
+  <div class="hero-meta">
+    <span><span class="dot"></span>3 个 HTML</span>
+    <span>同一组设计语言</span>
+    <span>同一组伙伴协议</span>
+  </div>
+</div>
+
+<section>
+  <div class="section-eyebrow">TABLE OF CONTENTS</div>
+  <h2>3 张图, 一个故事</h2>
+  <p class="section-lead">从抽象到具体, 从"是什么"到"在不同时间长什么样"。每一张都是自包含的, 但合在一起是完整的。</p>
+
+  <div class="toc">
+    <a class="toc-item" href="01-vision.html">
+      <div class="toc-num">01</div>
+      <div>
+        <div class="toc-sub">SYSTEM VISION</div>
+        <div class="toc-name">系统<em>终态</em>愿景</div>
+      </div>
+      <div class="toc-desc">"不是工具, 是关系" — <strong>6 个核心场景 + AI 伙伴终态 + 5 条不可妥协的设计原则 + 长期效果</strong>。整个系统长什么样, 它不做什么, 它怎么跟你说话。</div>
+      <div class="toc-arrow">→</div>
+    </a>
+
+    <a class="toc-item" href="02-cobweb.html">
+      <div class="toc-num">02</div>
+      <div>
+        <div class="toc-sub">COBWEB · 25 NODES</div>
+        <div class="toc-name">蛛网<em>终态</em></div>
+      </div>
+      <div class="toc-desc">"你看见的不是图, 是你" — <strong>25 节点 + 4 闭环 + 3 凸包 + 力导向布局 + AI 解读面板 + 时间轴 + 4 个未来能力</strong>。一个节点, 怎么展开成一张活的认知地图。</div>
+      <div class="toc-arrow">→</div>
+    </a>
+
+    <a class="toc-item" href="03-scenes.html">
+      <div class="toc-num">03</div>
+      <div>
+        <div class="toc-sub">COBWEB · LIFE STAGES</div>
+        <div class="toc-name">蛛网<em>真实</em>场景</div>
+      </div>
+      <div class="toc-desc">"不是所有蛛网长得一样" — <strong>5 个真实阶段 (Day 1 / 7 / 30 / 90 / 180), 5 节点 → 38 节点, 0 闭环 → 11 闭环</strong>。在不同时间, 同一张图, 不同的密度和形状。</div>
+      <div class="toc-arrow">→</div>
+    </a>
+  </div>
+
+  <div class="cross">
+    <div class="cross-title">HOW TO READ THIS SERIES</div>
+    <p class="cross-text">建议阅读顺序: <strong>01 → 02 → 03</strong>。但每一张都自包含, 你可以任何顺序进入。</p>
+    <ul class="cross-list">
+      <li><span><strong>从 01 开始</strong> — 先理解系统是什么, 再看核心怎么呈现</span></li>
+      <li><span><strong>从 02 开始</strong> — 先被蛛网打动, 再回头理解系统</span></li>
+      <li><span><strong>从 03 开始</strong> — 先看真实情况, 再去理解抽象</span></li>
+      <li><span><strong>只看一张</strong> — 3 张都是自包含的, 都能独立读</span></li>
+      <li><span><strong>打印 / 翻看</strong> — cream 暖色背景, 衬线字体, 像书</span></li>
+      <li><span><strong>分享给团队</strong> — 不用解释 "显影自性是什么", 让图自己说</span></li>
+    </ul>
+  </div>
+</section>
+
+<div class="closing">
+  <div class="closing-by">SYSTEM_SELF · VISION SERIES</div>
+  <div class="closing-name">画于 2026 年 7 月 1 日 · by Mavis</div>
+</div>
+
+</main>
+</body>
+</html>
